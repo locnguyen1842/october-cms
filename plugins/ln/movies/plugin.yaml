@@ -1,0 +1,6 @@
+plugin:
+    name: 'ln.movies::lang.plugin.name'
+    description: 'ln.movies::lang.plugin.description'
+    author: ln
+    icon: oc-icon-video-camera
+    homepage: ''
