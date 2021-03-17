@@ -1,0 +1,15 @@
+genres:
+  label: Genre
+  view:
+    list: $/ln/movies/models/genre/columns.yaml
+    toolbarButtons: add|remove
+  manage:
+    form: $/ln/movies/models/genre/fields.yaml
+    showCheckboxes: true
+
+actors:
+  label: Actor
+  view:
+    list: $/ln/movies/models/actor/columns.yaml
+    toolbarButtons: add|remove
+    recordUrl: /ln/movies/actors/update/:id

@@ -1,0 +1,4 @@
+title: Actors
+modelClass: Ln\Movies\Models\Actor
+toolbar:
+    buttons: reorder_toolbar

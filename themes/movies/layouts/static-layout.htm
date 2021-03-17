@@ -1,0 +1,100 @@
+description = "Static layout"
+
+[session]
+security = "all"
+
+[staticPage]
+useContent = 1
+default = 0
+
+[staticMenu]
+code = "header-menu"
+
+[staticMenu staticMenu2]
+code = "footer-menu"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>October CMS - {{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="OctoberCMS">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="generator" content="OctoberCMS">
+        <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
+        <link href="{{ 'assets/css/vendor.css'|theme }}" rel="stylesheet">
+        <link href="{{ 'assets/css/theme.css'|theme }}" rel="stylesheet">
+        {% styles %}
+    </head>
+    <body>
+
+        <!-- Header -->
+        <header id="layout-header">
+
+            <!-- Nav -->
+            <nav id="layout-nav" class="navbar navbar-inverse navbar-fixed-top navbar-autohide" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="{{ 'dashboard'|page }}">October Demo</a>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-main-collapse">
+                        <ul class="nav navbar-nav">
+                            {% component 'staticMenu' %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Content -->
+        <section id="layout-content">
+            <div class="container">
+                
+                <h1>{{this.page.title}}</h1>
+                {% page %}
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="layout-footer">
+            <div id="footer">
+                <div class="container">
+                    <hr />
+                    {% component 'staticMenu2' %}
+                    <p class="muted credit"></p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
+        <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
+        <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+
+        <script>
+            $(document).ready(function($) {
+                $('#contact_form').on('ajaxError', function(event, message) {
+                    $('.flash').removeClass('active')
+                    $('.flash.error').addClass('active')
+                })
+
+                $('#contact_form').on('ajaxSuccess', function(event, message) {
+                    $('.flash').removeClass('active')
+                    $('.flash.success').addClass('active')
+                })
+            })
+        </script>
+
+        {% framework extras %}
+        {% scripts %}
+
+    </body>
+</html>

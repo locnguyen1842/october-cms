@@ -1,0 +1,21 @@
+<style>
+  .select2-container {
+    width: 100% !important;
+    display: block;
+  }
+</style>
+
+<select multiple class="s2" name="<?= $name ?>">
+  <?php foreach($actors as $actor): ?>
+    <option value="<?= $actor->id ?>" <?= in_array($actor->id, $selectedValues) ? 'selected' : ''  ?>><?= $actor->full_name ?></option>
+  <?php endforeach; ?>
+</select>
+
+<script>
+  $(document).on('render', function() {
+    $('.s2').select2({
+      placeholder: 'Add actors',
+      tags: true
+    })
+  })
+</script>

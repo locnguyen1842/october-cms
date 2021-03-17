@@ -1,0 +1,58 @@
+fields:
+    name:
+        label: 'Movie title'
+        span: full
+        type: text
+    description:
+        label: Description
+        size: ''
+        span: full
+        type: richeditor
+    year:
+        label: Year
+        span: auto
+        type: text
+    slug:
+        label: Slug
+        span: auto
+        preset:
+            field: name
+            type: slug
+        type: text
+    poster:
+        label: 'Movie poster'
+        span: auto
+        mode: image
+        useCaption: 1
+        thumbOptions:
+            mode: crop
+            extension: auto
+        imageWidth: '100'
+        imageHeight: '100'
+        type: fileupload
+    movie_gallery:
+        label: 'Movie gallery'
+        mode: image
+        imageWidth: '80'
+        imageHeight: '80'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    genres:
+        label: Genres
+        nameFrom: genre_title
+        descriptionFrom: description
+        span: auto
+        type: partial
+        # path: field_genre
+        path: ~/plugins/ln/movies/controllers/movies/_field_genre.htm
+    actors:
+        label: Actors
+        span: left
+        type: partial
+        # path: field_actor -> this way is short ( it will auto link to same controllers/movies/_field_actor.htm)
+        path: ~/plugins/ln/movies/controllers/movies/_field_actor.htm
+        

@@ -1,0 +1,39 @@
+
+<style>
+  #actor_form :is(label, input, textarea) {
+    width: 100%;
+    display: block;
+  }
+
+  #actor_form button {
+    float: right;
+    width: 30%;
+  }
+</style>
+
+<form method="POST" action="{{ url('add-actors') }}" id="actor_form" accept-charset="UTF8" enctype="multipart/form-data">
+  
+  {{ form_token() }}
+  {{ form_sessionKey() }}
+
+  <input type="hidden" name="_handler" value="onSave">
+  
+  <label for="">First Name</label>
+  <input type="text" name="first_name">
+
+  <br>
+
+  <label for="">Last Name</label>
+  <input type="text" name="last_name">
+  <br>
+
+  <label for="">Actor Image</label>
+  <input type="file" name="actorimage" class="form-control">
+
+  <br>
+  <button type="submit" class="btn btn-primary">Save</button>
+
+  {% flash success %}
+    {{message}}
+  {% endflash %}
+</form>

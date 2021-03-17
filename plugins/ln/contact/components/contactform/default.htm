@@ -1,0 +1,41 @@
+
+<style>
+  #contact_form :is(label, input, textarea) {
+    width: 100%;
+    display: block;
+  }
+
+  #contact_form button {
+    float: right;
+    width: 30%;
+  }
+</style>
+
+<form action="" id="contact_form" data-request="contactform::onSend" data-request-validate data-request-flash>
+  <label for="">Name</label>
+  <input type="text" name="name">
+  <span data-validate-for="name"></span>
+
+<br>
+
+  <label for="">Email</label>
+  <input type="email" name="email">
+  <span data-validate-for="email"></span>
+
+<br>
+  <label for="">Message</label>
+  <textarea name="content" cols="30" rows="10"></textarea>
+<br>
+  <button type="submit" class="btn btn-primary" data-attach-loading>Send</button>
+
+<div class="clearfix"></div>
+<br>
+<div class="flash error">
+    Error flash
+</div>
+
+<div class="flash success">
+    Success flash
+</div>
+  
+</form>

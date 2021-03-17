@@ -1,0 +1,47 @@
+title = "Movie Detail"
+url = "/movies/detail/:slug"
+layout = "default"
+is_hidden = 0
+
+==
+    use Ln\Movies\Models\Movie;
+    function onStart() {
+        $this['movie'] = Movie::where('slug', $this->param('slug'))->first();
+    }
+
+
+==
+    {% if movie %}
+    <h2>{{ movie.name }}</h2>
+    <img src="{{ movie.poster.thumb(200, auto) }}" alt="inception"> <br>
+    <span>{{movie.year}}</span>
+
+    <p>{{movie.description|raw}}</p>
+
+    <h3>Gallery</h3>
+
+    <ul class="gallery clearfix">
+        {% for image in movie.movie_gallery %}
+        <li>
+            <a href="{{ image.path }}">
+                <img src="{{ image.thumb(80,80, {'mode': 'crop'}) }}" alt="inception-gallery">
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h3>GEnres</h3>
+    {% for genre in movie.genres %}
+      
+      <a href="/genres/{{genre.slug}}">{{genre.genre_title}}</a><br>
+    {% endfor %}
+
+    <h3>Actors</h3>
+
+    {% for actor in movie.actors %}
+      {{actor.full_name}} <br>
+    {% endfor %}
+    {% else %}
+        {% content 'NotFound' %}
+    {% endif %}
+

@@ -1,0 +1,6 @@
+plugin:
+    name: 'ln.contact::lang.plugin.name'
+    description: 'ln.contact::lang.plugin.description'
+    author: ln
+    icon: oc-icon-inbox
+    homepage: ''

@@ -1,0 +1,6 @@
+plugin:
+    name: 'ln.profile::lang.plugin.name'
+    description: 'ln.profile::lang.plugin.description'
+    author: ln
+    icon: oc-icon-print
+    homepage: ''

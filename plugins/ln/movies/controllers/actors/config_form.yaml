@@ -1,0 +1,10 @@
+name: Actors
+form: $/ln/movies/models/actor/fields.yaml
+modelClass: Ln\Movies\Models\Actor
+defaultRedirect: ln/movies/actors
+create:
+    redirect: 'ln/movies/actors/update/:id'
+    redirectClose: ln/movies/actors
+update:
+    redirect: ln/movies/actors
+    redirectClose: ln/movies/actors

@@ -1,0 +1,25 @@
+{{ form_ajax('onUpdate') }}
+
+    <div class="form-group">
+        <label for="accountName">Full Name</label>
+        <input name="name" type="text" class="form-control" id="accountName" value="{{ user.name }}">
+    </div>
+
+    <div class="form-group">
+        <label for="accountEmail">Email</label>
+        <input name="email" type="email" class="form-control" id="accountEmail" value="{{ user.email }}">
+    </div>
+
+    <div class="form-group">
+        <label for="accountFacebook">Facebook</label>
+        <input name="facebook" type="text" class="form-control" id="accountFacebook" value="{{ user.facebook }}">
+    </div>
+
+    <div class="form-group">
+        <label for="accountBio">Bio</label>
+        <textarea name="bio" id="accountBio" class="form-control">{{ user.bio }}</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-default">Save</button>
+
+{{ form_close() }}

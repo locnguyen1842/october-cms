@@ -1,0 +1,17 @@
+{% for message in errorMessages %}
+  <div>{{message}}</div>
+{% endfor %}
+
+
+<script>
+
+$('.error-msg').remove();
+
+const errors = {{ errorMessages|json_encode()|raw }}
+
+$.each(errors, function(field, message) {
+  let inputElement = $(`input[name='${field}']`);
+  $(`<div class="error-msg text-danger">${message}</div>`).insertAfter(inputElement)
+  inputElement.css('border', '1px solid red')
+})
+</script>

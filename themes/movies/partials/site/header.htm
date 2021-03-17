@@ -1,0 +1,36 @@
+==
+function onStart()
+{
+    $this['backendUrl'] = Backend::url('/');
+}
+==
+<!-- Nav -->
+<nav id="layout-nav" class="navbar navbar-inverse navbar-fixed-top navbar-autohide" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ 'dashboard'|page }}">October Demo</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <li class="separator hidden-xs"></li>
+                <li class="{% if this.page.id == 'dashboard' %}active{% endif %}"><a href="{{ 'dashboard'|page }}">Home</a></li>
+                <li class="{% if this.page.id == 'movies' %}active{% endif %}"><a href="{{ 'movies'|page }}">Movies</a></li>
+                <li class="{% if this.page.id == 'add-actors' %}active{% endif %}"><a href="{{ 'add-actors'|page }}">Add actors </a></li>
+                {% if not user %}
+                <li class="{% if this.page.id == 'login' %}active{% endif %}"><a href="{{ 'login'|page }}">Login</a></li>
+                {% else %}
+                <li class="{% if this.page.id == 'login' %}active{% endif %}"><a href="{{ 'login'|page }}">My Profile</a></li>
+                {% endif %}
+                {% if user %}
+                <li><a data-request="onLogout" data-request-data="redirect: '/'">Sign out</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

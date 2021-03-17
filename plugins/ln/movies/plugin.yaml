@@ -4,3 +4,35 @@ plugin:
     author: ln
     icon: oc-icon-video-camera
     homepage: ''
+navigation:
+    main-menu-item:
+        label: Movies
+        url: ln/movies/movies
+        icon: icon-video-camera
+        permissions:
+            - manage_movies
+        sideMenu:
+            side-menu-item3:
+                label: Movies
+                url: ln/movies/movies
+                icon: icon-file-movie-o
+            side-menu-item:
+                label: Genres
+                url: ln/movies/genres
+                icon: icon-tags
+                permissions:
+                    - manage_genres
+            side-menu-item2:
+                label: Actors
+                url: ln/movies/actors
+                icon: icon-male
+permissions:
+    manage_movies:
+        tab: Movies
+        label: 'Manage movies'
+    manage_genres:
+        tab: Genres
+        label: 'Manage genres'
+    delete_movies:
+        tab: Movies
+        label: 'Delete movies'

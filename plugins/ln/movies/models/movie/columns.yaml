@@ -1,0 +1,27 @@
+columns:
+    name:
+        label: 'Movie name'
+        type: text
+        searchable: true
+        sortable: true
+    year:
+        label: Year
+        type: number
+        sortable: true
+    poster:
+        label: Poster
+        type: partial
+        path: ~/plugins/ln/movies/models/movie/_poster_column.htm
+    genres:
+        label: Genres
+        type: text
+        searchable: true
+        select: genre_title
+        relation: genres
+    created_at:
+        label: 'Created at'
+        type: datetime
+        format: 'Y-m-d H:i:s'
+    published:
+        label: Published
+        type: switch
